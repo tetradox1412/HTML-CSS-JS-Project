@@ -1,0 +1,52 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    margin-right: 75pt;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    font-size: large;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+button {
+    border-radius: 3pt;
+    background-color: rgba(145, 4, 4, 0.965);
+    color: rgb(255, 255, 255);
+    padding: 4pt;
+    font-size: large;
+    width: 170pt;
+}
+
+button:hover {
+    background-color: rgba(242, 255, 0, 0.41) !important;
+    color: white !important;
+    font-size: x-large !important;
+    transition: 0.5s ease-in-out;
+}

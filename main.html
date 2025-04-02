@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <div class="form-container">
+    <h1>Login Page</h1>
+    <hr>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="name">Username:</label>
+        <input type="text" id="name" placeholder="Enter your username">
+        <div id="nameError" class="error"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+        <div id="passwordError" class="error"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <div id="emailError" class="error"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number">
+        <div id="phoneError" class="error"></div>
+      </div>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateName() {
+      let name = document.getElementById("name").value.trim();
+      let error = document.getElementById("nameError");
+      if (name === "") {
+        error.innerText = "Name field cannot be empty!";
+        return false;
+      }
+      error.innerText = "";
+      return true;
+    }
+
+    function validateEmail() {
+      let email = document.getElementById("email").value;
+      let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let error = document.getElementById("emailError");
+      if (!regex.test(email)) {
+        error.innerText = "Invalid email format!";
+        return false;
+      }
+      error.innerText = "";
+      return true;
+    }
+
+    function validatePassword() {
+      let password = document.getElementById("password").value;
+      let regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      let error = document.getElementById("passwordError");
+      if (!regex.test(password)) {
+        error.innerText = "Password must be at least 8 characters, include a letter, a number, and a special character.";
+        return false;
+      }
+      error.innerText = "";
+      return true;
+    }
+
+    function validatePhone() {
+      let phone = document.getElementById("phone").value;
+      let regex = /^\d{10}$/;
+      let error = document.getElementById("phoneError");
+      if (!regex.test(phone)) {
+        error.innerText = "Phone number must be exactly 10 digits.";
+        return false;
+      }
+      error.innerText = "";
+      return true;
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const isValid = validateName() && 
+                     validateEmail() && 
+                     validatePassword() && 
+                     validatePhone();
+      
+      if (isValid) {
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+</body>
+</html>
